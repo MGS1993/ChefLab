@@ -1,0 +1,12 @@
+.mainWrapper {
+  display: flex;
+}
+
+.searchInput {
+  width: 80%;
+}
+
+.searchBtn {
+  width: 20%;
+  background-color: rgb(63, 202, 63);
+}
