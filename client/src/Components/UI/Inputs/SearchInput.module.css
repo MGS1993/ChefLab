@@ -1,5 +1,6 @@
 .mainWrapper {
   display: flex;
+  justify-content: center;
 }
 
 .searchInput {
@@ -8,5 +9,11 @@
 
 .searchBtn {
   width: 20%;
-  background-color: rgb(63, 202, 63);
+  background-color: #043869;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBtn:hover {
+  background-color: rgb(43, 136, 43);
 }

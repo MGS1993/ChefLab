@@ -1,0 +1,10 @@
+.mainWrapper {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.infoWrapper {
+  display: grid;
+  grid-template-rows: 20% 80%;
+
+}

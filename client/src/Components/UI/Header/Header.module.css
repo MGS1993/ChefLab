@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@700&display=swap');
+
 .mainWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #043869 ;
+}
+
+.headerTitle {
+  font-family: 'Anton', sans-serif;
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+  color: white;
 }

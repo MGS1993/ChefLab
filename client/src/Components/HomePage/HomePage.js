@@ -1,25 +1,39 @@
-import React, { useEffect } from 'react';
-// import styles from './HomePage.module.css';
+import React, { useEffect, useState  } from 'react';
+import styles from './HomePage.module.css';
 import Header from '../UI/Header/Header';
+import SearchModule from '../SearchModule/SearchModule';
+import getRandomRecipes from '../../Utils/getRandomRecipes';
+import RecipePreview from '../RecipePreview/RecipePreview';
 
 const HomePage = () => {
-  const apiKey = '21b6ee32984f4b08a19a9a643d0edbce';
-  useEffect(() => {
-    async function getMeal() {
-      try {
-        const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${apiKey}`)
-        const data = await response.json();
-        console.log(data)
-      } catch(err) {
-        console.log(err)
-      }
+  const [ randomRecipe, setRandomRecipe ] = useState('')
+  let preview = null
+  useEffect(async () => {
+    try {
+      const data = await getRandomRecipes();
+      setRandomRecipe(data)
+      console.log(randomRecipe)
+    } catch (err) {
+      console.log(err);
     }
-    getMeal()
-  }, [])
-
+  }, []);
+  if(randomRecipe !== '') {
+    preview = (
+      randomRecipe.map((item, index) => {
+        return <RecipePreview
+        title={item.title}
+        imageSrc={item.image}
+        key={index} />
+      })
+    )
+  }
   return(
     <div>
       <Header />
+      <SearchModule />
+      <div className={styles.previewContainer}>
+        {preview}
+      </div>
       
     </div>
   )

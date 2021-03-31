@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+.mainWrapper {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  flex-direction: column;
+}
+
+h3 {
+  font-family: 'Quicksand', sans-serif;
+  color: #043869;
+}
