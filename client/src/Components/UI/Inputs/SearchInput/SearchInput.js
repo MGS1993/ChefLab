@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SearchInput.module.css';
 import { BiSearchAlt2 } from "react-icons/bi";
-
+// import Filter from './Filter/Filter';
 const SearchInput = props => {
-//FIND A NICE CSS STYLE FOR THE SEARCH BAR AND BUTTON THEN STYLE THE HEADER WITH IT
-//ON MOBILE. AFTER THAT WRITE THE TEST FOR THE SEARCH FUNCTIONALITY
   let searchBtn = null
   let mobileSearch = null
   if (props.searchBtn) {
@@ -16,8 +14,9 @@ const SearchInput = props => {
     )
   } else {
     mobileSearch = (
-      <div className={styles.mobileSearch}>
-        <button onClick={ props.clicked }>Search</button>
+      <div className={styles.mobileSearchWrapper}>
+        <button className={styles.mobileSearchBtn} 
+        onClick={ props.clicked }>Search</button>
       </div>
     )
   }
@@ -28,9 +27,10 @@ const SearchInput = props => {
         value={props.searchParam}
         onChange={e => props.setSearchParam(e.target.value)}
         placeholder='Search...'/>
-
       {searchBtn}
       {mobileSearch}
+      
+      {/* <Filter />  is a WIP*/}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styles from './SearchModule.module.css';
-import SearchInput from '../UI/Inputs/SearchInput';
+import SearchInput from '../UI/Inputs/SearchInput/SearchInput';
 import getSearchedRecipes from '../../Utils/getSearchedRecipes';
 import recipeResultsContext from '../../context/recipeResultsContext';
 
@@ -9,6 +9,7 @@ const SearchModule = () => {
   const context = useContext(recipeResultsContext);
 
   const renderSearch = async() => {
+    if(searchParam === '') {return null}
     try {
       let data = await getSearchedRecipes(searchParam, 'popularity');
       context.exportedData(data.results)
