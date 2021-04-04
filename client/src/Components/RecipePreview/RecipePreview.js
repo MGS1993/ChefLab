@@ -7,11 +7,11 @@ const RecipePreview = props => {
   return(
     <div className={styles.mainWrapper}>
       <div className={styles.imageWrapper}>
-        <img src={props.imageSrc} alt={`image of ${props.title}`} />
+        <img className={styles.image} src={props.imageSrc} alt={`image of ${props.title}`} />
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.title}>{props.title}</div>
-        <div> summary  </div>
+        <div style={{textAlign: "center"}}> summary  </div>
       </div>
     </div>
   )

@@ -4,7 +4,7 @@ export default async function getRandomRecipes() {
     const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?sort=random&apiKey=${apiKey}`)
     const data = await response.json();
     console.log(data)
-    return data.results
+    return data
   } catch(err) {
     console.log(err)
     return null

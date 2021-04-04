@@ -4,22 +4,23 @@ import Header from '../UI/Header/Header';
 import SearchModule from '../SearchModule/SearchModule';
 import getRandomRecipes from '../../Utils/getRandomRecipes';
 import RecipePreview from '../RecipePreview/RecipePreview';
+import recipeResultsContext  from '../../context/recipeResultsContext';
 
 const HomePage = () => {
-  const [ randomRecipe, setRandomRecipe ] = useState('')
+  const [ recipeResults, setRecipeResults ] = useState('')
   let preview = null
   useEffect(async () => {
     try {
       const data = await getRandomRecipes();
-      setRandomRecipe(data)
-      console.log(randomRecipe)
+      setRecipeResults(data.results)
+      console.log(recipeResults)
     } catch (err) {
       console.log(err);
     }
   }, []);
-  if(randomRecipe !== '') {
+  if(recipeResults !== '') {
     preview = (
-      randomRecipe.map((item, index) => {
+      recipeResults.map((item, index) => {
         return <RecipePreview
         title={item.title}
         imageSrc={item.image}
@@ -29,8 +30,10 @@ const HomePage = () => {
   }
   return(
     <div>
+      <recipeResultsContext.Provider value={{exportedData: setRecipeResults, exportedRecipe: recipeResults}}>
       <Header />
       <SearchModule />
+      </recipeResultsContext.Provider>
       <div className={styles.previewContainer}>
         {preview}
       </div>

@@ -1,10 +1,24 @@
 .mainWrapper {
-  display: grid;
-  grid-template-columns: 40% 60%;
+  height: 250px;
+  margin: 30px 0px;
+  cursor: pointer;
 }
 
 .infoWrapper {
   display: grid;
-  grid-template-rows: 20% 80%;
+  flex-direction: row;
+}
 
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  width: 80%;
+  height: auto;
+  align-self: center;
+}
+
+.title {
+  text-align: center;
 }
