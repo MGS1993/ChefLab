@@ -1,6 +1,7 @@
 import React, { useEffect, useState  } from 'react';
 import styles from './HomePage.module.css';
 import Header from '../UI/Header/Header';
+import { Link } from 'react-router-dom';
 import SearchModule from '../SearchModule/SearchModule';
 import getRandomRecipes from '../../Utils/getRandomRecipes';
 import RecipePreview from '../RecipePreview/RecipePreview';
@@ -18,13 +19,16 @@ const HomePage = () => {
       console.log(err);
     }
   }, []);
+
   if(recipeResults !== '') {
     preview = (
       recipeResults.map((item, index) => {
-        return <RecipePreview
+        return <Link key={index} to="recipeView"> 
+        <RecipePreview
         title={item.title}
         imageSrc={item.image}
         key={index} />
+        </Link>
       })
     )
   }
@@ -33,11 +37,12 @@ const HomePage = () => {
       <recipeResultsContext.Provider value={{exportedData: setRecipeResults, exportedRecipe: recipeResults}}>
       <Header />
       <SearchModule />
-      </recipeResultsContext.Provider>
+      
       <div className={styles.previewContainer}>
         {preview}
       </div>
       
+      </recipeResultsContext.Provider>
     </div>
   )
 }
