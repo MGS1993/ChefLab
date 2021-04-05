@@ -1,4 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 .mainWrapper {
   display: flex;
   flex-direction: column;
+}
+
+.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  box-shadow: inset 0px 20px 20px 0px #000, inset 0px -20px 20px 0px #000;
+  font-weight: bold;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.imageWrapper > div {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.imageWrapper >div:nth-child(2) {
+  justify-content: end;
+}
+.title {
+  font-size: 20px;
+  padding: 0 20px;
+}
+.cookTime {
+  font-size: 20px;
+  padding: 0 20px;
+}
+.image {
+  height: auto;
+  width: 100%;
 }

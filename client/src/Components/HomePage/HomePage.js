@@ -19,15 +19,16 @@ const HomePage = () => {
       console.log(err);
     }
   }, []);
-
+//FIND OUT HOW TO GET PROPS TO LINKED COMPONENT ROUTE
   if(recipeResults !== '') {
     preview = (
       recipeResults.map((item, index) => {
-        return <Link key={index} to="recipeView"> 
+        return <Link key={index} to={`recipeView/${item.id}`} > 
         <RecipePreview
         title={item.title}
         imageSrc={item.image}
-        key={index} />
+        key={index}
+        itemId={item.id} />
         </Link>
       })
     )

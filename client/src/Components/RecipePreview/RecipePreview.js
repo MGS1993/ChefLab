@@ -3,7 +3,7 @@ import styles from './RecipePreview.module.css';
 import PropTypes from 'prop-types';
 
 const RecipePreview = props => {
-
+  
   return(
     <div className={styles.mainWrapper} >
       <div className={styles.imageWrapper}>

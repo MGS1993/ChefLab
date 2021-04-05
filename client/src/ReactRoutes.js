@@ -7,7 +7,7 @@ const ReactRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path ='/' component={HomePage} />
-        <Route exact path ='/recipeView' component={RecipeView} />
+        <Route exact path ='/recipeView/:itemId' component={RecipeView} />
       </Switch>
     </BrowserRouter>
   )
