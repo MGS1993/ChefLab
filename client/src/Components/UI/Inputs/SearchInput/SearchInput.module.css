@@ -15,7 +15,11 @@
 }
 .mobileSearchBtn {
   width: 100%;
-  padding: 4px;
+  padding: 6px;
+  background-color: #225585;
+  border: 1px solid #225585;
+  color: white;
+  font-weight: bold;
 }
 
 .searchBtn {

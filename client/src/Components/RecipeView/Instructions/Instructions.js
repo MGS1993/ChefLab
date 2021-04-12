@@ -5,7 +5,7 @@ import StepComponent from './StepComponent/StepComponent';
 const Instructions = props => {
   let instructions
   let step 
-  if (props.instructions !== undefined) {
+  if (props.instructions !== undefined && props.instructions.length > 0) {
     instructions = props.instructions[0].steps
     step = instructions.map((item, index) => {
       return <StepComponent key={index} 
@@ -16,9 +16,7 @@ const Instructions = props => {
     instructions = null;
     step = null
   }
-  // props.instructions !== undefined ? 
-  //   instructions = props.instructions[0].steps 
-  //   : instructions = null
+
   console.log(instructions)
   return(
     <div className={styles.mainWrapper}>

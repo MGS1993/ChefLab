@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RecipeView.module.css";
-// import PropTypes from "prop-types";
 import { useParams } from "react-router";
 import getRecipeById from "../../Utils/getRecipeById";
 import IngredientList from "../RecipeView/IngredientList/IngredientList";
@@ -71,9 +70,5 @@ const RecipeView = () => {
     </div>
   );
 };
-
-// RecipeView.propTypes = {
-//   recipeInfo: PropTypes.object
-// };
 
 export default RecipeView;
