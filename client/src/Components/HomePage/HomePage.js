@@ -19,7 +19,6 @@ const HomePage = () => {
       console.log(err);
     }
   }, []);
-//FIND OUT HOW TO GET PROPS TO LINKED COMPONENT ROUTE
   if(recipeResults !== '') {
     preview = (
       recipeResults.map((item, index) => {

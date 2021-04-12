@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RecipeView.module.css";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { useParams } from "react-router";
 import getRecipeById from "../../Utils/getRecipeById";
 import IngredientList from "../RecipeView/IngredientList/IngredientList";
+import Instructions from './Instructions/Instructions';
 const RecipeView = () => {
-  const [recipeInfo, setRecipeInfo] = useState("");
+  const [recipeInfo, setRecipeInfo] = useState({});
   const { itemId } = useParams();
   const [expandedCheck, setExpandedCheck] = useState(false);
   let checkList;
@@ -66,13 +67,13 @@ const RecipeView = () => {
           ) : null}
         </div>
       </div>
+      <Instructions instructions={recipeInfo.analyzedInstructions} />
     </div>
   );
 };
 
-RecipeView.propTypes = {
-  imageSrc: PropTypes.string,
-  title: PropTypes.string,
-};
+// RecipeView.propTypes = {
+//   recipeInfo: PropTypes.object
+// };
 
 export default RecipeView;
