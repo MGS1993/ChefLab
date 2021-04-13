@@ -43,7 +43,6 @@
 .checkListWrapper {
   display: flex;
   flex-direction: column;
-  transition: .5s ease;
 
 }
 .checkListBtn {

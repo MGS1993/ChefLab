@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import styles from "./RecipeView.module.css";
 import { useParams } from "react-router";
 import getRecipeById from "../../Utils/getRecipeById";
+import getNutritionById from '../../Utils/getNutritionById';
 import IngredientList from "../RecipeView/IngredientList/IngredientList";
 import Instructions from './Instructions/Instructions';
+import NutritionWidget from './NutritionWidget/NutritionWidget';
 const RecipeView = () => {
   const [recipeInfo, setRecipeInfo] = useState({});
+  const [recipeNutrition, setRecipeNutrition ] = useState({});
   const { itemId } = useParams();
   const [expandedCheck, setExpandedCheck] = useState(false);
   let checkList;
@@ -13,11 +16,13 @@ const RecipeView = () => {
     try {
       const data = await getRecipeById(itemId);
       setRecipeInfo(data);
+      const nData = await getNutritionById(itemId);
+      setRecipeNutrition(nData);
     } catch (err) {
       console.log(err);
     }
   }, []);
-
+  console.log(recipeNutrition)
   expandedCheck
     ? (checkList = recipeInfo?.extendedIngredients.map((item, index) => {
         return (
@@ -44,7 +49,10 @@ const RecipeView = () => {
           </p>
         </div>
       </div>
-
+      <NutritionWidget 
+        servingQuantity={recipeInfo.servings}
+        servingCalories={recipeNutrition.calories} 
+       />
       <div className={styles.instructions}>
         <div className={styles.preCookWrapper}></div>
         <button

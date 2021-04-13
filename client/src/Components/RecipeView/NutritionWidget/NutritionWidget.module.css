@@ -1,0 +1,16 @@
+.mainWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+/* .mainWrapper :nth-child(1) {
+  display: flex;
+  
+} */
+.mainWrapper :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
