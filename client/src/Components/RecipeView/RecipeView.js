@@ -15,14 +15,14 @@ const RecipeView = () => {
   useEffect(async () => {
     try {
       const data = await getRecipeById(itemId);
-      setRecipeInfo(data);
+     
       const nData = await getNutritionById(itemId);
+      setRecipeInfo(data);
       setRecipeNutrition(nData);
     } catch (err) {
       console.log(err);
     }
   }, []);
-  console.log(recipeNutrition)
   expandedCheck
     ? (checkList = recipeInfo?.extendedIngredients.map((item, index) => {
         return (

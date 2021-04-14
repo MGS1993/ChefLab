@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Instructions.module.css';
 import PropTypes from "prop-types";
 import StepComponent from './StepComponent/StepComponent';
-const Instructions = props => {
+const Instructions = React.memo( function memoInstr(props) {
   let instructions
   let step 
   if (props.instructions !== undefined && props.instructions.length > 0) {
@@ -16,8 +16,7 @@ const Instructions = props => {
     instructions = null;
     step = null
   }
-
-  console.log(instructions)
+  console.log('test')
   return(
     <div className={styles.mainWrapper}>
       <div className={styles.Instructions}>
@@ -26,7 +25,7 @@ const Instructions = props => {
       </div>
     </div>
   )
-}
+})
 
 Instructions.propTypes = {
   stepLength: PropTypes.number,
