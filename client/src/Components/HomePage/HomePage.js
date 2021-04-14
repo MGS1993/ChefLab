@@ -14,7 +14,6 @@ const HomePage = () => {
     try {
       const data = await getRandomRecipes();
       setRecipeResults(data.results)
-      console.log(recipeResults)
     } catch (err) {
       console.log(err);
     }

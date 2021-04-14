@@ -69,3 +69,23 @@
  h2 {
   font-family: 'Trirong', serif;
  }
+
+ .backBtn {
+  position: fixed;
+  border: 1px solid #3480c7;
+  border-radius: 45px;
+  height: 48px;
+  width: 48px;
+  background-color: #3480c7;
+  opacity: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  transition: .4s ease;
+ }
+
+ .arrowWrapper {
+   scale: 1.4;
+ }

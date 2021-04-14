@@ -6,7 +6,7 @@ const StepComponent = props => {
 
   return(
     <div className={styles.mainWrapper}>
-      <div className={styles.stepText}>Step {props.currentStep}</div>
+      <div className={styles.stepText}><span className={styles.stepTextChar}>Step</span> {props.currentStep}</div>
       <div className={styles.instructionStep}>{props.stepInstruction}</div>
     </div>
   )

@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+.stepCountWrapper {
+  margin-bottom: 48px;
+}
 .stepCount {
   margin-top: 8px;
   text-align: center;

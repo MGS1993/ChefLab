@@ -6,11 +6,19 @@
   justify-content: center;
   align-items: center;
   background-color: #225585 ;
+  height: 7vh;
 }
 
 .headerTitle {
-  font-family: 'Anton', sans-serif;
+  position: absolute;
   font-family: 'Dancing Script', cursive;
   font-size: 32px;
   color: white;
+}
+
+.dotWrapper {
+  align-self: self-start;
+  scale: 2;
+  margin-left: 20px;
+  display: flex;
 }

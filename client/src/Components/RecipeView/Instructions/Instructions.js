@@ -18,8 +18,8 @@ const Instructions = React.memo( function memoInstr(props) {
   }
   console.log('test')
   return(
-    <div className={styles.mainWrapper}>
-      <div className={styles.Instructions}>
+    <div>
+      <div className={styles.stepCountWrapper}>
         <div className={styles.stepCount}>Steps: {instructions !== null ? instructions.length : null} </div>
         {step}
       </div>
