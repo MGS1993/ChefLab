@@ -1,0 +1,9 @@
+/*TODO make sizing adaptable, not exact measurements*/
+.mainWrapper {
+  height: 93vh;
+  position: absolute;
+  top:7vh;
+  left:0;
+  width: 0vw;
+  background-color: white;
+}

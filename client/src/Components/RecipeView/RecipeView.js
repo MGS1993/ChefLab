@@ -26,6 +26,10 @@ const RecipeView = () => {
     } catch (err) {
       console.log(err);
     }
+    return () => {
+      console.log('unmounted scrollEvent from recipeView')
+      window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
   
   let showAtBottomStyle

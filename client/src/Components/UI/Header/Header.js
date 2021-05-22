@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.css';
 import { HiDotsHorizontal } from "react-icons/hi";
+import SideModal from '../../SideModal/SideModal';
 const Header = () => {
-
+  const [ showModal, setShowModal ] = useState(false);
   return(
-    <div className={styles.mainWrapper}>
-      <div className={styles.dotWrapper}><HiDotsHorizontal color="white" /></div>
-      <div className={styles.headerTitle}>ChefLab</div>
-      <div className={styles.searchWrapper}>
+    <React.Fragment>
+      <div className={styles.mainWrapper}>
+        <div className={styles.dotWrapper}
+          onClick={() => setShowModal(!showModal)}>
+          <HiDotsHorizontal color="white" />
+        </div>
+        <div className={styles.headerTitle}>ChefLab</div>
+        <div className={styles.searchWrapper}>
+        </div>
       </div>
-    </div>
+      <SideModal showModal={showModal}  />
+    </React.Fragment>
   )
 }
 
