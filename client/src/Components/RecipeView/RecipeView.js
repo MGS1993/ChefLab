@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RecipeView.module.css";
-import { useHistory } from 'react-router';
-import { useParams } from "react-router";
+import { useHistory, useParams } from 'react-router';
 import getRecipeById from "../../Utils/getRecipeById";
 import getNutritionById from '../../Utils/getNutritionById';
 import IngredientList from "../RecipeView/IngredientList/IngredientList";
@@ -16,6 +15,7 @@ const RecipeView = () => {
   const [ atBottomPage, setAtBottomPage ] = useState(false);
   const history = useHistory();
   let checkList;
+  let auxStyle;
   useEffect(async () => {
     try {
       const data = await getRecipeById(itemId);
@@ -31,6 +31,15 @@ const RecipeView = () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, []);
+  checkList = recipeInfo?.extendedIngredients?.map((item, index) => {
+    return (
+      <IngredientList
+        key={index}
+        ingredient={item.name}
+        original={item.original}
+      />
+    );
+  })
   
   let showAtBottomStyle
       atBottomPage ? showAtBottomStyle = {opacity: 1} : showAtBottomStyle = null;
@@ -43,18 +52,8 @@ const RecipeView = () => {
     const windowBottom = windowHeight + window.pageYOffset;
     windowBottom >= docHeight ? setAtBottomPage(true) : setAtBottomPage(false);
   }
-  console.log(atBottomPage)
-  expandedCheck
-    ? (checkList = recipeInfo?.extendedIngredients.map((item, index) => {
-        return (
-          <IngredientList
-            key={index}
-            ingredient={item.name}
-            original={item.original}
-          />
-        );
-      }))
-    : (checkList = null);
+  expandedCheck ? auxStyle={height: 'auto', opacity: '1'}
+  : auxStyle={height: '0px', opacity: '0'}
   return (
     <div className={styles.mainWrapper}>
       <div
@@ -85,7 +84,7 @@ const RecipeView = () => {
         >
           {expandedCheck ? "Hide Checklist" : "Show Checklist"}
         </button>
-        <div className={styles.checkListWrapper}>
+        <div className={styles.checkListWrapper} style={auxStyle}>
           {checkList}
           {/*bottom code creates a button at the bottom of checklist that hides said checklist*/}
           {expandedCheck ? (

@@ -3,6 +3,7 @@ import styles from './IngredientList.module.css';
 import PropTypes from 'prop-types';
 
 const IngredientList = props => {
+  // TODO: set check to recipeview?
   const [ checked, setChecked ] = useState(false);
   
   return(

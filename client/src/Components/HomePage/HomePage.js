@@ -18,6 +18,7 @@ const HomePage = () => {
       console.log(err);
     }
   }, []);
+  console.log(recipeResults)
   if(recipeResults !== '') {
     preview = (
       recipeResults.map((item, index) => {

@@ -1,5 +1,7 @@
 /*TODO make sizing adaptable, not exact measurements*/
 .mainWrapper {
+  display: flex;
+  flex-direction: column;
   height: 93vh;
   position: absolute;
   top:7vh;
