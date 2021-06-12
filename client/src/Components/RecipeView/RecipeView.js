@@ -52,8 +52,8 @@ const RecipeView = () => {
     const windowBottom = windowHeight + window.pageYOffset;
     windowBottom >= docHeight ? setAtBottomPage(true) : setAtBottomPage(false);
   }
-  expandedCheck ? auxStyle={height: 'auto', opacity: '1'}
-  : auxStyle={height: '0px', opacity: '0'}
+  expandedCheck ? auxStyle={height: 'auto', opacity: '1', transition: '.5s'}
+  : auxStyle={height: '0px', opacity: '0', position: 'absolute'}
   return (
     <div className={styles.mainWrapper}>
       <div

@@ -13,7 +13,7 @@ const IngredientList = props => {
         <label className={styles.container} htmlFor={`${props.ingredient}` }>
           <input className={styles.checkbox} type="checkbox" name={`${props.ingredient}`} checked={checked} readOnly/>
           <span className={styles.checkmark} onClick={() => setChecked(!checked)}></span>
-            {props.ingredient.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase())};
+            {props.ingredient.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase())}
         </label>
       </div>
       <div className={styles.ingInstructions}>
