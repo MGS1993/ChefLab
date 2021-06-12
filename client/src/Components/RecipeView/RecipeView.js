@@ -7,6 +7,8 @@ import IngredientList from "../RecipeView/IngredientList/IngredientList";
 import Instructions from './Instructions/Instructions';
 import NutritionWidget from './NutritionWidget/NutritionWidget';
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { handleScroll } from '../../Utils/utilityCode';
+
 const RecipeView = () => {
   const [ recipeInfo, setRecipeInfo ] = useState({});
   const [ recipeNutrition, setRecipeNutrition ] = useState({});
@@ -22,15 +24,19 @@ const RecipeView = () => {
       const nData = await getNutritionById(itemId);
       setRecipeInfo(data);
       setRecipeNutrition(nData);
-      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", () => handleScroll(setAtBottomPage));
     } catch (err) {
       console.log(err);
     }
+  }, []);
+
+  useEffect(() => {
     return () => {
       console.log('unmounted scrollEvent from recipeView')
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", () => handleScroll(setAtBottomPage));
     }
-  }, []);
+  }, [])
+  
   checkList = recipeInfo?.extendedIngredients?.map((item, index) => {
     return (
       <IngredientList
@@ -44,14 +50,7 @@ const RecipeView = () => {
   let showAtBottomStyle
       atBottomPage ? showAtBottomStyle = {opacity: 1} : showAtBottomStyle = null;
   
-      const handleScroll = () => {
-    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-    const body = document.body;
-    const html = document.documentElement;
-    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    const windowBottom = windowHeight + window.pageYOffset;
-    windowBottom >= docHeight ? setAtBottomPage(true) : setAtBottomPage(false);
-  }
+
   expandedCheck ? auxStyle={height: 'auto', opacity: '1', transition: '.5s'}
   : auxStyle={height: '0px', opacity: '0', position: 'absolute'}
   return (
