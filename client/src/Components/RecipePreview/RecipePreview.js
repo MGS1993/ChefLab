@@ -11,7 +11,7 @@ const RecipePreview = props => {
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.title}>{props.title}</div>
-        {/* <div style={{textAlign: "center"}}> summary  </div> */}
+        
       </div>
     </div>
   )

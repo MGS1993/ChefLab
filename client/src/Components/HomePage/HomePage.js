@@ -3,7 +3,7 @@ import styles from './HomePage.module.css';
 import Header from '../UI/Header/Header';
 import { Link } from 'react-router-dom';
 import SearchModule from '../SearchModule/SearchModule';
-import getRandomRecipes from '../../Utils/getRandomRecipes';
+import { getRandomRecipes } from '../../Utils/apiCalls';
 import RecipePreview from '../RecipePreview/RecipePreview';
 import recipeResultsContext  from '../../context/recipeResultsContext';
 

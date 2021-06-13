@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styles from './SearchModule.module.css';
 import SearchInput from '../UI/Inputs/SearchInput/SearchInput';
-import getSearchedRecipes from '../../Utils/getSearchedRecipes';
+import { getSearchedRecipes } from '../../Utils/apiCalls';
 import recipeResultsContext from '../../context/recipeResultsContext';
 
 const SearchModule = () => {

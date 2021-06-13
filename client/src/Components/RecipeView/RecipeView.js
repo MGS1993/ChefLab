@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RecipeView.module.css";
 import { useHistory, useParams } from 'react-router';
-import getRecipeById from "../../Utils/getRecipeById";
-import getNutritionById from '../../Utils/getNutritionById';
+import { getRecipeById, getNutritionById } from '../../Utils/apiCalls';
 import IngredientList from "../RecipeView/IngredientList/IngredientList";
 import Instructions from './Instructions/Instructions';
 import NutritionWidget from './NutritionWidget/NutritionWidget';
