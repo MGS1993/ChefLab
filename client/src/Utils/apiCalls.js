@@ -16,7 +16,6 @@ const getRecipeById = async (id) => {
   try {
     const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`);
     const data = await response.json();
-    console.log(data)
     return data
   }catch(err) {
     console.log(err)
