@@ -3,19 +3,26 @@ import styles from './SearchModule.module.css';
 import SearchInput from '../UI/Inputs/SearchInput/SearchInput';
 import { getSearchedRecipes } from '../../Utils/apiCalls';
 import recipeResultsContext from '../../context/recipeResultsContext';
+import PropTypes from 'prop-types';
 
-const SearchModule = () => {
+const SearchModule = props => {
   const [ searchParam, setSearchParam ] = useState('');
   const context = useContext(recipeResultsContext);
-
+  // TODO add a module or build in div that adds '&(string) to search'
+  // TODO make side window close on search
   const renderSearch = async() => {
     if(searchParam === '') {return null}
-    try {
-      let data = await getSearchedRecipes(searchParam, 'popularity');
-      context.exportedData(data.results)
-    }catch(err) {
-      console.log(err)
+    if ( props.advanced ) {
+      return console.log('test')
+    } else {
+      try {
+        let data = await getSearchedRecipes(searchParam, 'popularity');
+        context.exportedData(data.results)
+      }catch(err) {
+        console.log(err)
+      }
     }
+    
   }
   return(
     <div className={styles.mainWrapper}>
@@ -26,6 +33,10 @@ const SearchModule = () => {
           clicked={() => renderSearch()} />
     </div>
   )
+}
+
+SearchModule.propTypes = {
+  advanced: PropTypes.bool
 }
 
 export default SearchModule

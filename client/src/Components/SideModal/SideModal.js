@@ -18,8 +18,7 @@ const SideModal = props => {
     <div className={styles.mainWrapper} style={helperStyle}>
       {props.showModal ? (
         <SideContainers>
-          {" "}
-          <SearchModule />{" "}
+          <SearchModule advanced={true} />
         </SideContainers>
       ) : null}
     </div>
