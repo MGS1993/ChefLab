@@ -56,7 +56,8 @@ const RecipeView = () => {
     <div className={styles.mainWrapper}>
       <div
         className={styles.imageWrapper}
-        style={{ backgroundImage: `url('${recipeInfo.image}')` }}
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)),url('${recipeInfo.image}')` }}
       >
         <div>
           <p className={styles.title}>{recipeInfo.title}</p>
