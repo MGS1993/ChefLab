@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './SideModal.module.css';
 import PropTypes from 'prop-types';
 import SideContainers from './SideContainers/SideContainers';
-import SearchModule from '../SearchModule/SearchModule';
+// import SearchModule from '../SearchModule/SearchModule';
 
 const SideModal = props => {
   let helperStyle
@@ -18,7 +18,7 @@ const SideModal = props => {
     <div className={styles.mainWrapper} style={helperStyle}>
       {props.showModal ? (
         <SideContainers>
-          <SearchModule advanced={true} />
+          {/* <SearchModule advanced={true} /> */}
         </SideContainers>
       ) : null}
     </div>

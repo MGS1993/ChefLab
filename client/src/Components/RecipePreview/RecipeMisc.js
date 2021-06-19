@@ -7,7 +7,7 @@ const RecipeMisc = () => {
 
   return (
     <div>
-      <span>test</span>
+      {/* <span>test</span> */}
     </div>
   )
 }

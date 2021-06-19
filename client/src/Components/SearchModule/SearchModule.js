@@ -10,6 +10,8 @@ const SearchModule = props => {
   const context = useContext(recipeResultsContext);
   // TODO add a module or build in div that adds '&(string) to search'
   // TODO make side window close on search
+
+
   const renderSearch = async() => {
     if(searchParam === '') {return null}
     if ( props.advanced ) {
@@ -24,6 +26,8 @@ const SearchModule = props => {
     }
     
   }
+
+  
   return(
     <div className={styles.mainWrapper}>
         <h3>Search Recipes</h3>
@@ -31,6 +35,7 @@ const SearchModule = props => {
           value={searchParam} setSearchParam={setSearchParam}
           searchBtn={false}
           clicked={() => renderSearch()} />
+          {props.advanced ? <div>test</div> : null}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Header.module.css';
 import { HiDotsHorizontal } from "react-icons/hi";
-import SideModal from '../../SideModal/SideModal';
+// import SideModal from '../../SideModal/SideModal';
 const Header = () => {
   const [ showModal, setShowModal ] = useState(false);
   return(
@@ -15,7 +15,7 @@ const Header = () => {
         <div className={styles.searchWrapper}>
         </div>
       </div>
-      <SideModal showModal={showModal}  />
+      {/* <SideModal showModal={showModal}  /> */}
     </React.Fragment>
   )
 }

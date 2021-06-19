@@ -16,7 +16,7 @@ const Instructions = React.memo( function memoInstr(props) {
     instructions = null;
     step = null
   }
-  console.log('test')
+  // console.log('test')
   return(
     <div>
       <div className={styles.stepCountWrapper}>
